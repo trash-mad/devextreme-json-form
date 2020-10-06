@@ -5,6 +5,7 @@ import { Component, Input } from '@angular/core';
   selector: 'mini-expansion',
   template: `
     <mini-group [columns]="columns" [phoneColumns]="phoneColumns" [tabletColumns]="tabletColumns" [desktopColumns]="desktopColumns">
+      <p>Группа</p>
       <ng-content></ng-content>
     </mini-group>
   `

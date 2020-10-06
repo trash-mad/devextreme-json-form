@@ -25,7 +25,9 @@
             ],
             "styles": [
               "src/styles.css",
-              "3rdparty/reflex@2.0.4/reflex.css"
+              "3rdparty/reflex@2.0.4/reflex.css",
+              "3rdparty/typeface-roboto@0.0.75/typeface-roboto.css",
+              "3rdparty/material-design-icons@3.0.1/material-icons.css"
             ],
             "scripts": []
           },
@@ -91,7 +93,9 @@
             ],
             "styles": [
               "src/styles.css",
-              "3rdparty/reflex@2.0.4/reflex.css"
+              "3rdparty/reflex@2.0.4/reflex.css",
+              "3rdparty/typeface-roboto@0.0.75/typeface-roboto.css",
+              "3rdparty/material-design-icons@3.0.1/material-icons.css"
             ],
             "scripts": []
           }

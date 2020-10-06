@@ -4,6 +4,8 @@ import { createCustomElement } from '@angular/elements';
 import { Injector, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { DxAccordionModule } from 'devextreme-angular';
+
 import { MiniComponent } from './mini.component';
 import { MiniWebComponent } from './mini-web.component';
 import { MiniGroupComponent } from './mini-group.component';
@@ -13,10 +15,12 @@ import { TextFieldComponent } from './fields/text-field.component';
 
 @NgModule({
   declarations: [
+    /** core components */
     MiniComponent,
     MiniWebComponent,
     MiniGroupComponent,
     MiniExpansionComponent,
+    /** field components */
     TextFieldComponent,
   ],
   imports: [

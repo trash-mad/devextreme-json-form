@@ -18,8 +18,8 @@
   --reflex-lg-max: 1599px;
 }
 
-.container,
-.container-full {
+.reflex-container,
+.reflex-container-full {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -30,43 +30,43 @@
   padding-left: 30px;
 }
 
-.container .grid,
-.container-full .grid {
+.reflex-container .reflex-grid,
+.reflex-container-full .reflex-grid {
   margin-right: -15px;
   margin-left: -15px;
 }
 
 @media (min-width: 576px) {
-  .container {
+  .reflex-container {
     max-width: 576px;
   }
 }
 
 @media (min-width: 768px) {
-  .container {
+  .reflex-container {
     max-width: 768px;
   }
 }
 
 @media (min-width: 992px) {
-  .container {
+  .reflex-container {
     max-width: 992px;
   }
 }
 
 @media (min-width: 1200px) {
-  .container {
+  .reflex-container {
     max-width: 1200px;
   }
 }
 
 @media (min-width: 1600px) {
-  .container {
+  .reflex-container {
     max-width: 1600px;
   }
 }
 
-.grid {
+.reflex-grid {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -86,7 +86,7 @@
   list-style-type: none;
 }
 
-.grid::before, .grid::after {
+.reflex-grid::before, .reflex-grid::after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -120,7 +120,7 @@
   white-space: normal;
 }
 
-[class*="reflex-col-"] .grid {
+[class*="reflex-col-"] .reflex-grid {
   -ms-flex: 1 1 auto;
   -webkit-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -1375,7 +1375,7 @@
   justify-content: flex-start;
 }
 
-.justify-start.grid {
+.justify-start.reflex-grid {
   text-align: left;
 }
 
@@ -1385,13 +1385,13 @@
   justify-content: flex-end;
 }
 
-.justify-end.grid {
+.justify-end.reflex-grid {
   text-align: right;
   -moz-text-align-last: right;
   text-align-last: right;
 }
 
-.justify-end.grid [class*="reflex-col-"] {
+.justify-end.reflex-grid [class*="reflex-col-"] {
   text-align: left;
   text-align: start;
   -moz-text-align-last: left;
@@ -1406,13 +1406,13 @@
   justify-content: center;
 }
 
-.justify-center.grid {
+.justify-center.reflex-grid {
   text-align: center;
   -moz-text-align-last: center;
   text-align-last: center;
 }
 
-.justify-center.grid [class*="reflex-col-"] {
+.justify-center.reflex-grid [class*="reflex-col-"] {
   text-align: left;
   text-align: start;
   -moz-text-align-last: left;
@@ -1427,13 +1427,13 @@
   justify-content: space-between;
 }
 
-.justify-space-between.grid {
+.justify-space-between.reflex-grid {
   text-align: justify;
   -moz-text-align-last: justify;
   text-align-last: justify;
 }
 
-.justify-space-between.grid [class*="reflex-col-"] {
+.justify-space-between.reflex-grid [class*="reflex-col-"] {
   text-align: left;
   text-align: start;
   -moz-text-align-last: left;
@@ -1448,13 +1448,13 @@
   justify-content: space-around;
 }
 
-.justify-space-around.grid {
+.justify-space-around.reflex-grid {
   text-align: justify;
   -moz-text-align-last: justify;
   text-align-last: justify;
 }
 
-.justify-space-around.grid [class*="reflex-col-"] {
+.justify-space-around.reflex-grid [class*="reflex-col-"] {
   text-align: left;
   text-align: start;
   -moz-text-align-last: left;
@@ -1463,7 +1463,7 @@
   text-align-last: start;
 }
 
-.grid-bleed [class*="reflex-col-"] {
+.reflex-grid-bleed [class*="reflex-col-"] {
   padding: 0;
 }
 

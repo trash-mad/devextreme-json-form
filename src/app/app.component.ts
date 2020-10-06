@@ -38,7 +38,7 @@ export class AppComponent {
       ]
     },
     {
-      type: FieldType.Group,
+      type: FieldType.Expansion,
       columns: '6',
       fields: [
         {
