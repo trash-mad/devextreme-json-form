@@ -13,7 +13,6 @@
 | lodash                    |   ^4.17.20    |
 | reflex                    |    ^2.0.4     |
 | devextreme                |     ^20.1     |
-| devextreme-angular        |     ^20.1     |
 | @angular/elements         |    ^10.1.4    |
 | elements-zone-strategy    |     ^8.0.0    |
 

@@ -38,7 +38,7 @@ export class AppComponent {
       ]
     },
     {
-      type: FieldType.Expansion,
+      type: FieldType.Group,
       columns: '6',
       fields: [
         {
@@ -47,9 +47,11 @@ export class AppComponent {
           title: 'Поле "a"',
         },
         {
-          type: FieldType.Text,
-          name: 'c',
+          type: FieldType.TagBox,
+          name: 'arr',
           title: 'Поле "c"',
+          items: ['a', 'b', 'c'],
+          defaultValue: ['b']
         },
       ]
     }
@@ -59,8 +61,9 @@ export class AppComponent {
     a: 'aaa',
     b: 'bbb',
     c: 'ccc',
+    arr: ['a']
   }), 500))
 
-  change = ({a, b, c}) => console.log(`a="${a}" b="${b}" c="${c}"`);
+  change = ({a, b, c, arr}) => console.log(`a="${a}" b="${b}" c="${c}" arr="${arr}"`);
 
 }

@@ -4,6 +4,7 @@ import deepEqual from 'deepequal';
 import deepCopy from 'deepcopy';
 
 import {get, set} from 'lodash';
+import { Input, OnChanges, SimpleChanges } from '@angular/core';
 
 // tslint:disable: member-ordering
 
@@ -39,7 +40,15 @@ type exclude = 'name'
  * Базовый класс поля. Позволяет обернуть IEntity
  * в удобную абстракцию
  */
-export class ManagedField implements Omit<IEntity, exclude> {
+export class ManagedField implements Omit<IEntity, exclude>, OnChanges {
+
+  /**
+   * Входной параметр для инициализации
+   */
+  @Input()
+  set entity(v: IEntity) {
+    this.provideEntity(v);
+  }
 
   /**
    * Имя поля json объекта
@@ -72,7 +81,8 @@ export class ManagedField implements Omit<IEntity, exclude> {
   public phoneColumns = '';
   public tabletColumns = '';
   public desktopColumns = '';
-  public defaultValue: string | number | boolean = '';
+  public defaultValue: string | number | boolean | string[] = '';
+  public items: string | number | boolean | string[] = '';
 
   /**
    * Поля, специфичные для исключений, не попавших в абстракцию
@@ -89,7 +99,7 @@ export class ManagedField implements Omit<IEntity, exclude> {
    * коллбек сhanged, который летит из One компонента,
    * если были обнаружены изменения
    */
-  public onChange(value: string | number | boolean) {
+  public onChange(value: string | string[] | number | number[] | boolean | boolean[]) {
     if (this.readonly) {
       return;
     } else {
@@ -103,6 +113,19 @@ export class ManagedField implements Omit<IEntity, exclude> {
       }
     }
   }
+
+  /**
+   * Метод, вызываемый после загрузки и доступный
+   * к переопределению
+   */
+  protected mfOnInit() { }
+
+  /**
+   * Если в компоненте все же потребуется
+   * использование метода жизненного цикла
+   * OnChanges...
+   */
+  protected mfOnChanges(changes: SimpleChanges) { }
 
   /**
    * Получает объект на вход от One компонента
@@ -129,6 +152,17 @@ export class ManagedField implements Omit<IEntity, exclude> {
     this.desktopColumns = entity.desktopColumns;
     this.defaultValue = entity.defaultValue;
     this.radioValue = entity.radioValue;
+    this.items = entity.items;
+
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    const {entity} = changes;
+    const {isFirstChange} = entity;
+    if (isFirstChange) {
+      this.mfOnInit();
+    }
+    this.mfOnChanges(changes);
   }
 
 }

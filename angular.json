@@ -24,6 +24,8 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/devextreme/dist/css/dx.light.css",
+              "node_modules/devextreme/dist/css/dx.common.css",
               "src/styles.css",
               "3rdparty/reflex@2.0.4/reflex.css",
               "3rdparty/typeface-roboto@0.0.75/typeface-roboto.css",
@@ -92,6 +94,8 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/devextreme/dist/css/dx.light.css",
+              "node_modules/devextreme/dist/css/dx.common.css",
               "src/styles.css",
               "3rdparty/reflex@2.0.4/reflex.css",
               "3rdparty/typeface-roboto@0.0.75/typeface-roboto.css",

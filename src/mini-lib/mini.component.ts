@@ -10,7 +10,7 @@ import { IEntity } from 'mini/model/IEntity.model';
       <ng-container *ngFor="let entity of entities;">
         <ng-container [ngSwitch]="entity.type">
 
-          <ng-container *ngSwitchCase="'expansion'">
+          <!--ng-container *ngSwitchCase="'expansion'">
             <mini-expansion
               [columns]="entity.columns"
               [phoneColumns]="entity.phoneColumns"
@@ -21,7 +21,7 @@ import { IEntity } from 'mini/model/IEntity.model';
                 [change]="onChange">
               </mini-component>
             </mini-expansion>
-          </ng-container>
+          </ng-container-->
 
           <ng-container *ngSwitchCase="'group'">
             <mini-group
@@ -41,20 +41,21 @@ import { IEntity } from 'mini/model/IEntity.model';
             </mini-text-field>
           </ng-container>
 
+          <ng-container *ngSwitchCase="'tag-box'">
+            <mini-tagbox-field [entity]="entity">
+            </mini-tagbox-field>
+          </ng-container>
+
+          <div *ngSwitchDefault>
+            {{'Unknown field: ' + stringify(entity)}}
+          </div>
+
         </ng-container>
       </ng-container>
     </ng-container>
   `
 })
 export class MiniComponent implements AfterViewChecked {
-
-  /**
-   * Позволяет загружать данные в компонент
-   */
-  @Input()
-  set handler(v: () => any | Promise<any>) {
-    this.object = v;
-  }
 
   /**
    * Объект, который выводится на форму,
@@ -113,9 +114,7 @@ export class MiniComponent implements AfterViewChecked {
    */
   @Input() fallback = (e) => console.error('mini.component handler resolve error', e);
 
-  constructor(
-    private appRef: ApplicationRef,
-  ) {
+  constructor(private appRef: ApplicationRef) {
     this.onChange = this.onChange.bind(this);
   }
 
@@ -148,8 +147,21 @@ export class MiniComponent implements AfterViewChecked {
     this.object = obj;
     this.change(obj);
     if (this.isRootNode) {
-      // this.appRef.tick();
+      this.appRef.tick();
     }
+  }
+
+  /**
+   * Проброс сериализатора в представление
+   */
+  stringify = (v) => JSON.stringify(v);
+
+  /**
+   * Позволяет загружать данные в компонент
+   */
+  @Input()
+  set handler(v: () => any | Promise<any>) {
+    this.object = v;
   }
 
 }

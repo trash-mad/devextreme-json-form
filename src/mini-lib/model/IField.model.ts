@@ -75,6 +75,11 @@ export interface IField {
   /**
    * Значение по-умолчанию для выпадающего списка и строки
    */
-  defaultValue?: string | number | boolean;
+  defaultValue?: string | number | boolean | string[];
+
+  /**
+   * Опции для выбора в выпадающих списках
+   */
+  items?: string | number | boolean | string[];
 
 }

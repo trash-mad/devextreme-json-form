@@ -4,14 +4,12 @@ import { createCustomElement } from '@angular/elements';
 import { Injector, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { DxAccordionModule } from 'devextreme-angular';
-
 import { MiniComponent } from './mini.component';
 import { MiniWebComponent } from './mini-web.component';
 import { MiniGroupComponent } from './mini-group.component';
-import { MiniExpansionComponent } from './mini-expansion.component';
 
 import { TextFieldComponent } from './fields/text-field.component';
+import { TagboxFieldComponent } from './fields/tagbox-field.component';
 
 @NgModule({
   declarations: [
@@ -19,18 +17,15 @@ import { TextFieldComponent } from './fields/text-field.component';
     MiniComponent,
     MiniWebComponent,
     MiniGroupComponent,
-    MiniExpansionComponent,
     /** field components */
     TextFieldComponent,
+    TagboxFieldComponent,
   ],
   imports: [
     CommonModule,
   ],
   exports: [
     MiniComponent,
-    MiniGroupComponent,
-    MiniExpansionComponent,
-    TextFieldComponent,
   ],
   entryComponents: [
     MiniWebComponent,
