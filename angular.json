@@ -25,7 +25,7 @@
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap-grid.min.css"
+              "3rdparty/reflex@2.0.4/reflex.css"
             ],
             "scripts": []
           },
@@ -91,7 +91,7 @@
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap-grid.min.css"
+              "3rdparty/reflex@2.0.4/reflex.css"
             ],
             "scripts": []
           }

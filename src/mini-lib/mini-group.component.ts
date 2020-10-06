@@ -4,11 +4,11 @@ import { Component, Input } from '@angular/core';
   // tslint:disable-next-line: component-selector
   selector: 'mini-group',
   template: `
-    <fieldset>
-      <legend>
-        Группа {{title ? '"' + title + '"' : ''}} xs="{{xs}}" sm="{{sm}}" md="{{md}}" lg="{{lg}}" xl="{{xl}}"</legend>
-      <ng-content></ng-content>
-    </fieldset>
+    <div [ngClass]="reflexClass()">
+      <div class="group">
+        <ng-content></ng-content>
+      </div>
+    </div>
   `
 })
 export class MiniGroupComponent {
@@ -19,6 +19,14 @@ export class MiniGroupComponent {
   @Input() phoneColumns = '';
   @Input() tabletColumns = '';
   @Input() desktopColumns = '';
+
+  reflexClass = () => ({
+    [`reflex-col-xs-${this.xs}`]: this.xs,
+    [`reflex-col-sm-${this.sm}`]: this.sm,
+    [`reflex-col-md-${this.md}`]: this.md,
+    [`reflex-col-lg-${this.lg}`]: this.lg,
+    [`reflex-col-xlg-${this.xl}`]: this.xl,
+  })
 
   get xs() { return this.columns ? this.columns : this.phoneColumns ? this.phoneColumns : '12'; }
   get sm() { return this.columns ? this.columns : this.phoneColumns ? this.phoneColumns : '12'; }

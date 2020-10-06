@@ -11,13 +11,13 @@
 | deepcopy                  |    ^2.1.0     |
 | deepequal                 |    ^0.0.1     |
 | lodash                    |   ^4.17.20    |
-| bootstrap                 |    ^4.3.1     |
+| reflex                    |    ^2.0.4     |
 | devextreme                |     ^20.1     |
 | devextreme-angular        |     ^20.1     |
 | @angular/elements         |    ^10.1.4    |
 | elements-zone-strategy    |     ^8.0.0    |
 
-Пакеты deepcopy, deepequal и lodash являются обязательными. Пакет bootstrap опционален, если обновить верстку полей `group` и `expansion`. Пакеты `devextreme` и `devextreme-angular` опциональны, если переверстать остальные поля ввода.
+Пакеты deepcopy, deepequal и lodash являются обязательными. Пакет `reflex` опционален, если обновить верстку полей `group` и `expansion`. Пакеты `devextreme` и `devextreme-angular` опциональны, если переверстать остальные поля ввода.
 
 Кроме того, `mini-component` поддерживает инстанцирование в нативный html, используя `@angular/elements` и `elements-zone-strategy`. Если будете менять версию Angular, внимательно прочитайте документацию последнего!
 
