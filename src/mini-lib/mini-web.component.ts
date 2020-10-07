@@ -14,8 +14,11 @@ const waitForMount = (ref: HTMLElement) => new Promise((res) => {
 const DEFAULT_KEY = 'miniFields';
 
 const getKey = (ref: HTMLElement) => {
-  if (ref.closest('mini-web-component')) {
-    return ref.dataset.minikey || DEFAULT_KEY;
+  let closest = null;
+  // tslint:disable-next-line: no-conditional-assignment
+  if (closest = ref.closest('mini-web-component')) {
+    // tslint:disable-next-line: no-string-literal
+    return closest.dataset['minikey'] || DEFAULT_KEY;
   } else {
     return DEFAULT_KEY;
   }
@@ -48,9 +51,10 @@ export class MiniWebComponent implements AfterViewInit {
   async ngAfterViewInit() {
     const {nativeElement} = this.self;
     await waitForMount(nativeElement);
-    console.log('DEBUG')
-    const key = getKey(nativeElement);
-    this.input = window[key];
+    // tslint:disable-next-line: no-string-literal
+    const key = nativeElement.dataset['minikey'] || getKey(nativeElement);
+    console.log({key});
+    this.input = window[key] as any;
   }
 
 }

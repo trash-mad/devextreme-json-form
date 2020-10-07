@@ -37,9 +37,9 @@ const index = () => fs.writeFile(`${CURRENT_LIB_PATH}/index.html`, `
     <link rel="stylesheet" href="mini-lib-assets/styles.css"/>
   </head>
   <body>
-    <mini-web-component miniKey="miniFields"></mini-web-component>
+    <mini-web-component data-miniKey="someComponent"></mini-web-component>
     <script>
-      window.miniFields = {
+      window.someComponent = {
         fields: [
           {
             type: 'group',
@@ -52,7 +52,7 @@ const index = () => fs.writeFile(`${CURRENT_LIB_PATH}/index.html`, `
                 columns: '4',
               },
               {
-                type: 'text-box',
+                type: 'tag-box',
                 name: 'arr',
                 items: ['a', 'b', 'c'],
                 defaultValue: ['b'],
