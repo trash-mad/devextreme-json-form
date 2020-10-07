@@ -6,7 +6,7 @@
 
 For correct work in the project using `mini-lib` you need to install the following dependencies
 
-| Наименование зависимости  | Версия пакета |
+| Dependency name           | Version       |
 | ------------------------- | ------------- |
 | deepcopy                  |    ^2.1.0     |
 | deepequal                 |    ^0.0.1     |
