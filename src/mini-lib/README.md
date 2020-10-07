@@ -129,7 +129,7 @@ export class AppComponent {
 
 ```
 
-It is assumed that the input parameters of the mini component perform the following functions
+It is assumed that the input parameters of the `mini-componen` perform the following functions
 
  - handler: a promise that loads json for output to a form
 
