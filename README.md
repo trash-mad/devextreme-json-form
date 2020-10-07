@@ -6,7 +6,11 @@
 
 ## Compiled distro
 
-To save your time there is online demo and compiled distro
+To save your time there is [online demo](https://tripolskypetr.github.io/devextreme-json-form/) and [compiled distro](https://tripolskypetr.github.io/devextreme-json-form/distro.zip)
+
+## Usage in Angular2 app
+
+Check instruction [here](./src/mini-lib/README.md)
 
 ## Developer Guide
 
@@ -94,7 +98,7 @@ This tool can be easily applied in third party applications by using using [cust
         ]
       }
     ],
-    handler: () => fetch('api/v1/users').then(d => d.json()),
+    handler: () => new Promise((res) => res({arr: ['a'], arr1: [], omg: true, text: 'hello!'})),
     change: (data) => console.log(data),
   }
 </script>

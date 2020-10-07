@@ -93,15 +93,7 @@ const index = () => fs.writeFile(`${CURRENT_LIB_PATH}/index.html`, `
             ]
           }
         ],
-        handler: () => new Promise((res) => res({
-          a: 'aaa',
-          b: 'bbb',
-          c: 'ccc',
-          arr: ['a'],
-          arr1: [],
-          text: '',
-          omg: true,
-        })),
+        handler: () => new Promise((res) => res({arr: ['a'], arr1: [], omg: true, text: 'hello!'})),
         change: (data) => console.log(data),
       }
     </script>
