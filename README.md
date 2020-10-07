@@ -1,27 +1,44 @@
 # DevextremeAngularFormGenerator
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
+> Компонент для рендеринга 12-колоночной сетки с применением компонентов DevExtreame из json шаблона
 
-## Development server
+## Руководство разработика
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+ - Запуск локального веб-сервера для разработки
 
-## Code scaffolding
+  ```
+  npm start # см /src/mini-lib/fields
+  ```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+ - Сборка веб-компонента для размещения на отдельных страницах 
 
-## Build
+  ```
+  npm build:mini-lib # в dist/mini-lib
+  ```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Использование
 
-## Running unit tests
+Компонент `mini-lib` может размещаться как в сторонних приложениях, так и на веб-странице, используя [customElements](https://developer.mozilla.org/en-US/docs/Web/API/Window/customElements). Для первого случая пример кода можно посмотреть `app.component.ts`, для второго пример кода я разместил ниже:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```
+<mini-web-component data-miniKey="someComponent"></mini-web-component>
+<script>
+  window.someComponent = {
+    fields: [
+      {
+        type: 'group',
+        columns: '12',
+        title: 'Input fields:',
+        fields: [
+          {
+            type: 'label',
+            title: 'TagBox',
+            columns: '4',
+          },
+          ...
+    ],
+    handler: () => fetch('api/v1/users').then(d => d.json()),
+    change: (data) => console.log(data),
+  }
+</script>
+```
