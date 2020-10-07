@@ -5,7 +5,10 @@ import { Component, Input } from '@angular/core';
   selector: 'mini-group',
   template: `
     <div [ngClass]="reflexClass()">
-      <h3 *ngIf="title">{{title}}</h3>
+      <h3 style="display: flex; align-items: center;" *ngIf="title">
+        {{title}}
+        <div style="flex: 1; background: #808080; opacity: 0.25; height: 1px; margin: 10px;"></div>
+      </h3>
       <div class="group" style="margin: 5px;">
         <ng-content></ng-content>
       </div>

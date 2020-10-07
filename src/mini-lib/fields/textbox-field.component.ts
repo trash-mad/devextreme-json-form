@@ -1,4 +1,4 @@
-import { ApplicationRef, Component, ElementRef, Input, NgZone, OnChanges, OnDestroy, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, ElementRef, NgZone, OnDestroy, ViewChild } from '@angular/core';
 import { ManagedField } from '../ManagedField.class';
 
 import TextBox from 'devextreme/ui/text_box';

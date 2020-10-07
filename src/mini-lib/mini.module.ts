@@ -13,6 +13,7 @@ import { TagboxFieldComponent } from './fields/tagbox-field.component';
 import { LabelFieldComponent } from './fields/label-field.component';
 import { SelectboxFieldComponent } from './fields/selectbox-field.component';
 import { TextboxFieldComponent } from './fields/textbox-field.component';
+import { CheckboxFieldComponent } from './fields/checkbox-field.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { TextboxFieldComponent } from './fields/textbox-field.component';
     LabelFieldComponent,
     SelectboxFieldComponent,
     TextboxFieldComponent,
+    CheckboxFieldComponent,
   ],
   imports: [
     CommonModule,

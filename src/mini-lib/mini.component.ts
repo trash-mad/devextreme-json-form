@@ -81,6 +81,17 @@ import { IEntity } from 'mini/model/IEntity.model';
             </mini-group>
           </ng-container>
 
+          <ng-container *ngSwitchCase="'check-box'">
+            <mini-group
+              [columns]="entity.columns"
+              [phoneColumns]="entity.phoneColumns"
+              [tabletColumns]="entity.tabletColumns"
+              [desktopColumns]="entity.desktopColumns">
+              <mini-checkbox-field [entity]="entity">
+              </mini-checkbox-field>
+            </mini-group>
+          </ng-container>
+
           <ng-container *ngSwitchCase="'label'">
             <mini-group
               [columns]="entity.columns"

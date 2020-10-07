@@ -56,6 +56,16 @@ export class AppComponent {
           name: 'text',
           columns: '8',
         },
+        {
+          type: FieldType.Label,
+          title: 'CheckBox',
+          columns: '4',
+        },
+        {
+          type: FieldType.CheckBox,
+          name: 'omg',
+          columns: '8',
+        },
       ]
     },
   ];
@@ -67,6 +77,7 @@ export class AppComponent {
     arr: ['a'],
     arr1: [],
     text: '',
+    omg: true,
   }), 500))
 
   change = ({a, b, c, arr}) => console.log(`a="${a}" b="${b}" c="${c}" arr="${arr}"`);

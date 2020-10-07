@@ -5,4 +5,5 @@ export enum FieldType {
   Label = 'label',
   SelectBox = 'select-box',
   TextBox = 'text-box',
+  CheckBox = 'check-box',
 }
