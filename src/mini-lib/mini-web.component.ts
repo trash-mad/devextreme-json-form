@@ -11,7 +11,7 @@ const waitForMount = (ref: HTMLElement) => new Promise((res) => {
   }, 100);
 });
 
-const DEFAULT_KEY = 'mini_fields';
+const DEFAULT_KEY = 'miniFields';
 
 const getKey = (ref: HTMLElement) => {
   if (ref.closest('mini-web-component')) {
@@ -48,6 +48,7 @@ export class MiniWebComponent implements AfterViewInit {
   async ngAfterViewInit() {
     const {nativeElement} = this.self;
     await waitForMount(nativeElement);
+    console.log('DEBUG')
     const key = getKey(nativeElement);
     this.input = window[key];
   }

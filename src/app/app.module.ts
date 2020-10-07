@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { MiniModule } from 'mini/mini.module';
-import { Inject, Injector, NgModule } from '@angular/core';
+import { Injector, NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { APP_BASE_HREF } from '@angular/common';
@@ -15,7 +15,7 @@ import { createCustomElement } from '@angular/elements';
     MiniModule,
   ],
   // tslint:disable-next-line: no-string-literal
-  providers: [{provide: APP_BASE_HREF, useValue: window['miniBaseHref']}],
+  providers: [{provide: APP_BASE_HREF, useValue: window['miniBaseHref'] || '/mini-lib-assets/'}],
   entryComponents: [AppComponent]
 })
 export class AppModule {
