@@ -16,16 +16,20 @@
 | @angular/elements         |    ^10.1.4    |
 | elements-zone-strategy    |     ^8.0.0    |
 
-Пакеты deepcopy, deepequal и lodash являются обязательными. Пакет `reflex` опционален, если обновить верстку полей `group` и `expansion`. Пакеты `devextreme` и `devextreme-angular` опциональны, если переверстать остальные поля ввода.
+Пакеты deepcopy, deepequal и lodash являются обязательными. Пакет `reflex` опционален, если обновить верстку полей `group` и `expansion` (todo). Пакет `devextreme` опционален, если переверстать остальные поля ввода.
 
 Кроме того, `mini-component` поддерживает инстанцирование в нативный html, используя `@angular/elements` и `elements-zone-strategy`. Если будете менять версию Angular, внимательно прочитайте документацию последнего!
 
-P.S. не забудьте подключить bootstrap, прописав в `angular.json` путь к его css стилям:
+P.S. не забудьте подключить стили, прописав в `angular.json` путь к его css стилям:
 
 ```
 "styles": [
   ...
-  "node_modules/bootstrap/dist/css/bootstrap-grid.min.css",
+  "node_modules/devextreme/dist/css/dx.light.css",
+  "node_modules/devextreme/dist/css/dx.common.css",
+  "3rdparty/reflex@2.0.4/reflex.css",
+  "3rdparty/typeface-roboto@0.0.75/typeface-roboto.css",
+  "3rdparty/material-design-icons@3.0.1/material-icons.css"
   ...
 ]
 ```
@@ -71,120 +75,54 @@ export class AppComponent {
   fields: IField[] = [
     {
       type: FieldType.Group,
+      columns: '12',
+      title: 'Поля ввода:',
       fields: [
         {
-          type: FieldType.Line,
-          title: 'Общая информация',
+          type: FieldType.Label,
+          title: 'TagBox',
+          columns: '4',
         },
         {
-          name: 'firstName',
-          type: FieldType.String,
-          title: 'Имя',
-          description: 'Felton',
+          type: FieldType.TagBox,
+          name: 'arr',
+          items: ['a', 'b', 'c'],
+          defaultValue: ['b'],
+          columns: '8',
         },
         {
-          name: 'lastName',
-          type: FieldType.String,
-          title: 'Фамилия',
-          description: 'Cruickshank',
+          type: FieldType.Label,
+          title: 'SelectBox',
+          columns: '4',
         },
         {
-          name: 'age',
-          type: FieldType.String,
-          title: 'Возраст',
-          description: '42',
-          isInvalid: (obj) => {
-            const value = Number(obj.age);
-            if (!Number.isInteger(value)) {
-              return 'Возраст должен быть числом';
-            } else if (value < 1) {
-              return 'Возраст должен быть больше 1';
-            } else {
-              return null;
-            }
-          },
+          type: FieldType.SelectBox,
+          name: 'arr1',
+          items: ['a', 'b', 'c'],
+          columns: '8',
         },
         {
-          type: FieldType.Expansion,
-          title: 'Подписка',
-          description: 'Подписка на уведомления',
-          fields: [
-            {
-              type: FieldType.Group,
-              fields: [
-                {
-                  type: FieldType.Switch,
-                  name: 'subscribed',
-                  title: 'Разрешить рассылку',
-                },
-                {
-                  name: 'email',
-                  type: FieldType.String,
-                  isDisabled: (obj) => !obj.subscribed,
-                  title: 'Почта',
-                  description: 'tripolskypetr@gmail.com',
-                },
-              ]
-            },
-          ],
+          type: FieldType.Label,
+          title: 'TextBox',
+          columns: '4',
         },
         {
-          type: FieldType.Group,
-          fields: [
-            {
-              type: FieldType.Group,
-              columns: '6',
-              fields: [
-                {
-                  type: FieldType.Line,
-                  title: 'Работа',
-                },
-                {
-                  name: 'jobTitle',
-                  type: FieldType.String,
-                  title: 'Должность',
-                },
-                {
-                  name: 'jobArea',
-                  type: FieldType.String,
-                  title: 'Место работы',
-                },
-              ]
-            },
-            {
-              type: FieldType.Group,
-              columns: '6',
-              fields: [
-                {
-                  type: FieldType.Line,
-                  title: 'Домашний адрес',
-                },
-                {
-                  name: 'country',
-                  type: FieldType.String,
-                  title: 'Страна',
-                },
-                {
-                  name: 'city',
-                  type: FieldType.String,
-                  title: 'Город',
-                },
-                {
-                  name: 'state',
-                  type: FieldType.String,
-                  title: 'Область',
-                },
-                {
-                  name: 'address',
-                  type: FieldType.String,
-                  title: 'Адрес',
-                },
-              ]
-            },
-          ],
+          type: FieldType.TextBox,
+          name: 'text',
+          columns: '8',
         },
-      ],
-    }
+        {
+          type: FieldType.Label,
+          title: 'CheckBox',
+          columns: '4',
+        },
+        {
+          type: FieldType.CheckBox,
+          name: 'omg',
+          columns: '8',
+        },
+      ]
+    },
   ];
 
   ...
@@ -200,3 +138,7 @@ export class AppComponent {
  - fields: json шаблон формы
 
  - change: коллбек, возвращающий 
+
+## Важно
+
+Если DevExtreme по каким-либо причинам перестанет вас устраивать, поставьте на `mini-component` другие поля ввода. Например, подойдут [веб-компоненты material](https://material.io/develop/web/components/sliders), пример генерации верстки на основе входных параметров можно посмотреть [тут](https://github.com/tripolskypetr/preact-material-typescript-kit/blob/master/src/components/common/slider.tsx).
