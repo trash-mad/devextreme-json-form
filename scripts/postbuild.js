@@ -34,6 +34,7 @@ const index = () => fs.writeFile(`${CURRENT_LIB_PATH}/index.html`, `
 <html>
   <head>
     <script src="mini-lib.js"></script>
+    <meta charset="utf-8"/>
     <link rel="stylesheet" href="mini-lib-assets/styles.css"/>
   </head>
   <body>
