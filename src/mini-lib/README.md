@@ -16,7 +16,7 @@ For correct work in the project using `mini-lib` you need to install the followi
 | @angular/elements         |    ^10.1.4    |
 | elements-zone-strategy    |     ^8.0.0    |
 
-The `deepcopy`, `deepequal` and `lodash` packages are required. The package `reflex` is optional if you rewrite code of the *group* and *expansion* (todo) fields . The package is `devextreme` is optional if you going to write your custom fields.
+The `deepcopy`, `deepequal` and `lodash` packages are required. The package `reflex` is optional if you rewrite code of the *group* and *expansion* (todo) fields . The package `devextreme` is optional if you going to write your custom fields.
 
 Also `mini-component` supports native html instantiation by using `@angular/elements` and `elements-zone-strategy`. If you change the version of Angular, read the documentation of the last carefully!
 
