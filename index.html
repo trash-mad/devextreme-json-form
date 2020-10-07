@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="mini-lib.js"></script>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="mini-lib-assets/styles.css"/>
+  </head>
+  <body>
+    <div class="reflex-container">
+      <mini-web-component data-miniKey="someComponent"></mini-web-component>
+      <script>
+        window.someComponent = {
+          fields: [
+            {
+              type: 'group',
+              columns: '12',
+              title: 'Input fields:',
+              fields: [
+                {
+                  type: 'group',
+                  columns: '6',
+                  fields: [
+                    {
+                      type: 'label',
+                      title: 'TagBox',
+                      columns: '5',
+                    },
+                    {
+                      type: 'tag-box',
+                      name: 'arr',
+                      items: ['a', 'b', 'c'],
+                      defaultValue: ['b'],
+                      columns: '7',
+                    },
+                    {
+                      type: 'label',
+                      title: 'SelectBox',
+                      columns: '5',
+                    },
+                    {
+                      type: 'select-box',
+                      name: 'arr1',
+                      items: ['a', 'b', 'c'],
+                      columns: '7',
+                    },
+                  ]
+                },
+                {
+                  type: 'group',
+                  columns: '6',
+                  fields: [
+                    {
+                      type: 'label',
+                      title: 'TextBox',
+                      columns: '5',
+                    },
+                    {
+                      type: 'text-box',
+                      name: 'text',
+                      columns: '7',
+                    },
+                    {
+                      type: 'label',
+                      title: 'CheckBox',
+                      columns: '5',
+                    },
+                    {
+                      type: 'check-box',
+                      name: 'omg',
+                      columns: '7',
+                    },
+                  ]
+                }
+              ]
+            }
+          ],
+          handler: () => new Promise((res) => res({
+            arr: ['a'],
+            arr1: [],
+            text: '',
+            omg: true,
+          })),
+          change: (data) => console.log(data),
+        }
+      </script>
+    </div>
+  </body>
+</html>
