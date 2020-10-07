@@ -6,11 +6,13 @@ import { IField } from 'mini/model/IField.model';
 @Component({
   selector: 'app-root',
   template: `
-  <div class="container">
-    <div class="row">
-      <mini-component [fields]="fields" [handler]="handler" [change]="change"></mini-component>
+    <div class="reflex-container">
+      <mini-component
+        [handler]="handler"
+        [fields]="fields"
+        [change]="change"
+      ></mini-component>
     </div>
-  </div>
   `
 })
 export class AppComponent {
@@ -18,50 +20,53 @@ export class AppComponent {
   fields: IField[] = [
     {
       type: FieldType.Group,
-      columns: '6',
+      columns: '12',
+      title: 'Поля ввода:',
       fields: [
         {
-          type: FieldType.Group,
-          fields: [
-            {
-              type: FieldType.Text,
-              name: 'a',
-              title: 'Поле "а"',
-            },
-          ]
-        },
-        {
-          type: FieldType.Text,
-          name: 'b',
-          title: 'Поле "b"',
-        },
-      ]
-    },
-    {
-      type: FieldType.Group,
-      columns: '6',
-      fields: [
-        {
-          type: FieldType.Text,
-          name: 'a',
-          title: 'Поле "a"',
+          type: FieldType.Label,
+          title: 'TagBox',
+          columns: '4',
         },
         {
           type: FieldType.TagBox,
           name: 'arr',
-          title: 'Поле "c"',
           items: ['a', 'b', 'c'],
-          defaultValue: ['b']
+          defaultValue: ['b'],
+          columns: '8',
+        },
+        {
+          type: FieldType.Label,
+          title: 'SelectBox',
+          columns: '4',
+        },
+        {
+          type: FieldType.SelectBox,
+          name: 'arr1',
+          items: ['a', 'b', 'c'],
+          columns: '8',
+        },
+        {
+          type: FieldType.Label,
+          title: 'TextBox',
+          columns: '4',
+        },
+        {
+          type: FieldType.TextBox,
+          name: 'text',
+          columns: '8',
         },
       ]
-    }
+    },
   ];
 
   handler = () => new Promise((res) => setTimeout(() => res({
     a: 'aaa',
     b: 'bbb',
     c: 'ccc',
-    arr: ['a']
+    arr: ['a'],
+    arr1: [],
+    text: '',
   }), 500))
 
   change = ({a, b, c, arr}) => console.log(`a="${a}" b="${b}" c="${c}" arr="${arr}"`);

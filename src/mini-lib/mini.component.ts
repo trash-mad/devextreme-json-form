@@ -25,6 +25,7 @@ import { IEntity } from 'mini/model/IEntity.model';
 
           <ng-container *ngSwitchCase="'group'">
             <mini-group
+              [title]="entity.title"
               [columns]="entity.columns"
               [phoneColumns]="entity.phoneColumns"
               [tabletColumns]="entity.tabletColumns"
@@ -37,13 +38,58 @@ import { IEntity } from 'mini/model/IEntity.model';
           </ng-container>
 
           <ng-container *ngSwitchCase="'text'">
-            <mini-text-field [entity]="entity">
-            </mini-text-field>
+            <mini-group
+              [columns]="entity.columns"
+              [phoneColumns]="entity.phoneColumns"
+              [tabletColumns]="entity.tabletColumns"
+              [desktopColumns]="entity.desktopColumns">
+              <mini-text-field [entity]="entity">
+              </mini-text-field>
+            </mini-group>
           </ng-container>
 
           <ng-container *ngSwitchCase="'tag-box'">
-            <mini-tagbox-field [entity]="entity">
-            </mini-tagbox-field>
+            <mini-group
+              [columns]="entity.columns"
+              [phoneColumns]="entity.phoneColumns"
+              [tabletColumns]="entity.tabletColumns"
+              [desktopColumns]="entity.desktopColumns">
+              <mini-tagbox-field [entity]="entity">
+              </mini-tagbox-field>
+            </mini-group>
+          </ng-container>
+
+          <ng-container *ngSwitchCase="'select-box'">
+            <mini-group
+              [columns]="entity.columns"
+              [phoneColumns]="entity.phoneColumns"
+              [tabletColumns]="entity.tabletColumns"
+              [desktopColumns]="entity.desktopColumns">
+              <mini-selectbox-field [entity]="entity">
+              </mini-selectbox-field>
+            </mini-group>
+          </ng-container>
+
+          <ng-container *ngSwitchCase="'text-box'">
+            <mini-group
+              [columns]="entity.columns"
+              [phoneColumns]="entity.phoneColumns"
+              [tabletColumns]="entity.tabletColumns"
+              [desktopColumns]="entity.desktopColumns">
+              <mini-textbox-field [entity]="entity">
+              </mini-textbox-field>
+            </mini-group>
+          </ng-container>
+
+          <ng-container *ngSwitchCase="'label'">
+            <mini-group
+              [columns]="entity.columns"
+              [phoneColumns]="entity.phoneColumns"
+              [tabletColumns]="entity.tabletColumns"
+              [desktopColumns]="entity.desktopColumns">
+              <mini-label-field [entity]="entity">
+              </mini-label-field>
+            </mini-group>
           </ng-container>
 
           <div *ngSwitchDefault>

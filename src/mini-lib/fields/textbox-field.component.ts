@@ -1,20 +1,20 @@
 import { ApplicationRef, Component, ElementRef, Input, NgZone, OnChanges, OnDestroy, SimpleChanges, ViewChild } from '@angular/core';
 import { ManagedField } from '../ManagedField.class';
 
-import TagBox from 'devextreme/ui/tag_box';
+import TextBox from 'devextreme/ui/text_box';
 
 @Component({
   // tslint:disable-next-line: component-selector
-  selector: 'mini-tagbox-field',
+  selector: 'mini-textbox-field',
   template: `
     <ng-container>
       <div #ref style="min-height: 35px;"></div>
     </ng-container>
   `,
 })
-export class TagboxFieldComponent extends ManagedField implements OnDestroy {
+export class TextboxFieldComponent extends ManagedField implements OnDestroy {
 
-  private tagBox: TagBox = null;
+  private textBox: TextBox = null;
 
   @ViewChild('ref', {static: true}) ref: ElementRef<HTMLDivElement>;
 
@@ -22,20 +22,18 @@ export class TagboxFieldComponent extends ManagedField implements OnDestroy {
 
   mfOnInit = () => this.ngZone.runOutsideAngular(() => {
     const {nativeElement} = this.ref;
-    const items = (this.items || []) as string[];
-    const value = (this.value || []) as string[];
-    this.tagBox = new TagBox(nativeElement, {
+    this.textBox = new TextBox(nativeElement, {
       onValueChanged: ({component: c}) => {
         const v = c.option('value');
         this.onChange(v);
       },
-      items, value
+      value: this.value || this.defaultValue || '',
     });
   })
 
   ngOnDestroy = () => {
-    if (this.tagBox !== null) {
-      this.tagBox.dispose();
+    if (this.textBox !== null) {
+      this.textBox.dispose();
     }
   }
 

@@ -24,6 +24,7 @@ const defaultProps: Partial<IEntity> = {
   object: {},
   name: '',
   readonly: false,
+  defaultValue: null,
 };
 
 /**
@@ -132,7 +133,7 @@ export class ManagedField implements Omit<IEntity, exclude>, OnChanges {
    */
   protected provideEntity(entity: IEntity) {
 
-    entity = Object.assign(defaultProps, entity);
+    entity = Object.assign({}, defaultProps, entity);
 
     this.name = entity.name;
     this.object = entity.object;

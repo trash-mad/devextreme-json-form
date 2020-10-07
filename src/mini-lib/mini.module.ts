@@ -10,6 +10,9 @@ import { MiniGroupComponent } from './mini-group.component';
 
 import { TextFieldComponent } from './fields/text-field.component';
 import { TagboxFieldComponent } from './fields/tagbox-field.component';
+import { LabelFieldComponent } from './fields/label-field.component';
+import { SelectboxFieldComponent } from './fields/selectbox-field.component';
+import { TextboxFieldComponent } from './fields/textbox-field.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,9 @@ import { TagboxFieldComponent } from './fields/tagbox-field.component';
     /** field components */
     TextFieldComponent,
     TagboxFieldComponent,
+    LabelFieldComponent,
+    SelectboxFieldComponent,
+    TextboxFieldComponent,
   ],
   imports: [
     CommonModule,
