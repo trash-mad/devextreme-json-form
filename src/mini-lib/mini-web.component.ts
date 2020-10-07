@@ -53,7 +53,6 @@ export class MiniWebComponent implements AfterViewInit {
     await waitForMount(nativeElement);
     // tslint:disable-next-line: no-string-literal
     const key = nativeElement.dataset['minikey'] || getKey(nativeElement);
-    console.log({key});
     this.input = window[key] as any;
   }
 

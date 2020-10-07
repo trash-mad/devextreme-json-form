@@ -21,7 +21,7 @@ export class AppComponent {
     {
       type: FieldType.Group,
       columns: '12',
-      title: 'Поля ввода:',
+      title: 'Fields:',
       fields: [
         {
           type: FieldType.Label,
@@ -70,7 +70,7 @@ export class AppComponent {
     },
   ];
 
-  handler = () => new Promise((res) => setTimeout(() => res({
+  handler = () => new Promise((res) => res({
     a: 'aaa',
     b: 'bbb',
     c: 'ccc',
@@ -78,8 +78,8 @@ export class AppComponent {
     arr1: [],
     text: '',
     omg: true,
-  }), 500))
+  }))
 
-  change = ({a, b, c, arr}) => console.log(`a="${a}" b="${b}" c="${c}" arr="${arr}"`);
+  change = (changes) => console.log(changes);
 
 }

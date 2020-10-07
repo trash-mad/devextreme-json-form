@@ -1,10 +1,10 @@
 # mini-lib
 
-> Компонент для рендеринга 12-колоночной сетки с применением компонентов DevExtreme из json шаблона
+> Component for rendering a 12-column grid using DevExtreme by json template
 
-## Зависимости
+## Dependencies
 
-Для корректной работы в проект, использующий `mini-lib` нужно установить следующие зависимости
+For correct work in the project using `mini-lib` you need to install the following dependencies
 
 | Наименование зависимости  | Версия пакета |
 | ------------------------- | ------------- |
@@ -16,11 +16,11 @@
 | @angular/elements         |    ^10.1.4    |
 | elements-zone-strategy    |     ^8.0.0    |
 
-Пакеты deepcopy, deepequal и lodash являются обязательными. Пакет `reflex` опционален, если обновить верстку полей `group` и `expansion` (todo). Пакет `devextreme` опционален, если переверстать остальные поля ввода.
+The `deepcopy`, `deepequal` and `lodash` packages are required. The package `reflex` is optional if you rewrite code of the *group* and *expansion* (todo) fields . The package is `devextreme` is optional if you going to write your custom fields.
 
-Кроме того, `mini-component` поддерживает инстанцирование в нативный html, используя `@angular/elements` и `elements-zone-strategy`. Если будете менять версию Angular, внимательно прочитайте документацию последнего!
+Also `mini-component` supports native html instantiation by using `@angular/elements` and `elements-zone-strategy`. If you change the version of Angular, read the documentation of the last carefully!
 
-P.S. не забудьте подключить стили, прописав в `angular.json` путь к его css стилям:
+P.S. do not forget to include styles by writing to the `angular.json` paths to its css files:
 
 ```
 "styles": [
@@ -34,9 +34,9 @@ P.S. не забудьте подключить стили, прописав в 
 ]
 ```
 
-## Установка
+## Installation
 
-Для применения в новом проекте скопируйте папку `mini-lib` в директорию `src`, пропишите в `tsconfig.json` маппинг импорта:
+To use in a new Angular2 project, copy the folder `mini-lib` to the directory `src`, write in the `tsconfig.json` this lines:
 
 ```
 {
@@ -53,11 +53,11 @@ P.S. не забудьте подключить стили, прописав в 
 }
 ```
 
-После, подключение осуществляется по аналогии с обычным [shared module](https://angular.io/guide/sharing-ngmodules). 
+After that, import as usual [shared module](https://angular.io/guide/sharing-ngmodules). 
 
-## Пример кода
+## Code example
 
-Json шаблоны форм имеют следующую структуру: 
+Json form templates have the following structure:
 
 ```
 @Component({
@@ -76,7 +76,7 @@ export class AppComponent {
     {
       type: FieldType.Group,
       columns: '12',
-      title: 'Поля ввода:',
+      title: 'Fields:',
       fields: [
         {
           type: FieldType.Label,
@@ -129,16 +129,16 @@ export class AppComponent {
 
 ```
 
-Подразумевается, что входные параметры mini компонента осуществляют следующие функции
+It is assumed that the input parameters of the mini component perform the following functions
 
- - handler: промис, подгружающий json для вывода на форму
+ - handler: a promise that loads json for output to a form
 
- - fallback: коллбек, вызываемый если handler не удалось исполнить
+ - fallback: callback to be called if handler failed to execute
 
- - fields: json шаблон формы
+ - fields: json form template
 
- - change: коллбек, возвращающий 
+ - change: a callback which is raised on change
 
-## Важно
+## Notes
 
-Если DevExtreme по каким-либо причинам перестанет вас устраивать, поставьте на `mini-component` другие поля ввода. Например, подойдут [веб-компоненты material](https://material.io/develop/web/components/sliders), пример генерации верстки на основе входных параметров можно посмотреть [тут](https://github.com/tripolskypetr/preact-material-typescript-kit/blob/master/src/components/common/slider.tsx).
+If DevExtreme for some reason ceases to suit you, put on `mini-component` other input fields. I think [material web components](https://material.io/develop/web/components/sliders) can be applied, an example of usage can be found [here](https://github.com/tripolskypetr/preact-material-typescript-kit/blob/master/src/components/common/slider.tsx).
