@@ -1,4 +1,4 @@
-import { Component, Input, ApplicationRef, AfterViewChecked } from '@angular/core';
+import { Component, Input, ApplicationRef, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
 import { IField } from 'mini/model/IField.model';
 import { IEntity } from 'mini/model/IEntity.model';
 
@@ -171,7 +171,10 @@ export class MiniComponent implements AfterViewChecked {
    */
   @Input() fallback = (e) => console.error('mini.component handler resolve error', e);
 
-  constructor(private appRef: ApplicationRef) {
+  constructor(
+    private appRef: ApplicationRef,
+    private changeDetector: ChangeDetectorRef,
+  ) {
     this.onChange = this.onChange.bind(this);
   }
 
@@ -192,6 +195,7 @@ export class MiniComponent implements AfterViewChecked {
         }
       } else {
         this.object = result;
+        this.changeDetector.detectChanges();
       }
       this.isRootNode = true;
     }

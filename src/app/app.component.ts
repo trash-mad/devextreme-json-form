@@ -70,7 +70,7 @@ export class AppComponent {
     },
   ];
 
-  handler = () => new Promise((res) => res({
+  handler = () => ({
     a: 'aaa',
     b: 'bbb',
     c: 'ccc',
@@ -78,7 +78,7 @@ export class AppComponent {
     arr1: [],
     text: '',
     omg: true,
-  }))
+  })
 
   change = (changes) => console.log(changes);
 

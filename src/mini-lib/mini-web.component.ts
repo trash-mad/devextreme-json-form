@@ -48,12 +48,13 @@ export class MiniWebComponent implements AfterViewInit {
 
   constructor(private self: ElementRef) { }
 
-  async ngAfterViewInit() {
+  ngAfterViewInit() {
     const {nativeElement} = this.self;
-    await waitForMount(nativeElement);
-    // tslint:disable-next-line: no-string-literal
-    const key = nativeElement.dataset['minikey'] || getKey(nativeElement);
-    this.input = window[key] as any;
+    waitForMount(nativeElement).then(() => {
+      // tslint:disable-next-line: no-string-literal
+      const key = nativeElement.dataset['minikey'] || getKey(nativeElement);
+      this.input = window[key] as any;
+    });
   }
 
 }
