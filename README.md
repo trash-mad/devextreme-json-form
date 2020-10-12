@@ -103,3 +103,7 @@ This tool can be easily applied in third party applications by using using [cust
   }
 </script>
 ```
+
+## Why the renderer is named as a `mini-component`?
+
+![logo](./logo.png)
