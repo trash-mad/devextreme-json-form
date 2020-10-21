@@ -1,6 +1,7 @@
 import { Component, Input, ApplicationRef, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
 import { IField } from 'mini/model/IField.model';
 import { IEntity } from 'mini/model/IEntity.model';
+import buildObj from './utils/buildObj';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -186,18 +187,20 @@ export class MiniComponent implements AfterViewChecked {
     if (this.isRootNode) {
       return;
     } else if (typeof this.object === 'function') {
-      const result = this.object();
-      if (result instanceof Promise) {
-        try {
-          this.object = await result;
-        } catch (e) {
-          this.fallback(e);
+      try {
+        const result = this.object();
+        const {assign} = Object;
+        if (result instanceof Promise) {
+          this.object = assign(buildObj(this.fields), await result);
+        } else {
+          this.object = assign(buildObj(this.fields), result);
+          this.changeDetector.detectChanges();
         }
-      } else {
-        this.object = result;
-        this.changeDetector.detectChanges();
+      } catch (e) {
+        this.fallback(e);
+      } finally {
+        this.isRootNode = true;
       }
-      this.isRootNode = true;
     }
   }
 

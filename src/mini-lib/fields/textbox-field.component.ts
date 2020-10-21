@@ -25,7 +25,7 @@ export class TextboxFieldComponent extends ManagedField implements OnDestroy {
     this.textBox = new TextBox(nativeElement, {
       onValueChanged: ({component: c}) => {
         const v = c.option('value');
-        this.onChange(v);
+        this.onChangeNow(v);
       },
       value: this.value || this.defaultValue || '',
     });

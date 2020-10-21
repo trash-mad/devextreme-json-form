@@ -27,7 +27,7 @@ export class SelectboxFieldComponent extends ManagedField implements OnDestroy {
     this.selectBox = new SelectBox(nativeElement, {
       onValueChanged: ({component: c}) => {
         const v = c.option('value');
-        this.onChange(v);
+        this.onChangeNow(v);
       },
       items, value
     });

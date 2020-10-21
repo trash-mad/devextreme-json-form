@@ -27,7 +27,7 @@ export class TagboxFieldComponent extends ManagedField implements OnDestroy {
     this.tagBox = new TagBox(nativeElement, {
       onValueChanged: ({component: c}) => {
         const v = c.option('value');
-        this.onChange(v);
+        this.onChangeNow(v);
       },
       items, value
     });

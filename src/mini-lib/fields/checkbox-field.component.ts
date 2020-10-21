@@ -25,7 +25,7 @@ export class CheckboxFieldComponent extends ManagedField implements OnDestroy {
     this.checkBox = new CheckBox(nativeElement, {
       onValueChanged: ({component: c}) => {
         const v = c.option('value');
-        this.onChange(v);
+        this.onChangeNow(v);
       },
       value: this.value || this.defaultValue || false,
     });

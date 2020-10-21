@@ -6,6 +6,8 @@ import deepCopy from 'deepcopy';
 import {get, set} from 'lodash';
 import { Input, OnChanges, SimpleChanges } from '@angular/core';
 
+import ngDebounce from './utils/ngDebounce';
+
 // tslint:disable: member-ordering
 
 /**
@@ -36,6 +38,13 @@ type exclude = 'name'
   | 'type'
   | 'readonly'
   | 'isInvalid';
+
+type v = string
+  | boolean[]
+  | string[]
+  | number[]
+  | boolean
+  | number;
 
 /**
  * Базовый класс поля. Позволяет обернуть IEntity
@@ -92,7 +101,20 @@ export class ManagedField implements Omit<IEntity, exclude>, OnChanges {
 
   constructor() {
     this.onChange = this.onChange.bind(this);
+    this.onChangeNow = this.onChangeNow.bind(this);
     this.provideEntity = this.provideEntity.bind(this);
+  }
+
+  /**
+   * Тот же onChangeNow, но с оптимизацией на обработку
+   * последнего из неприрывной чреды вызовов - используйте
+   * при обработке ввода в реальном времени из текстовых полей
+   * (onkeypress)
+   */
+  @ngDebounce(800)
+  public onChange(value: v) {
+    console.log('onChange');
+    this.onChangeNow(value);
   }
 
   /**
@@ -100,7 +122,7 @@ export class ManagedField implements Omit<IEntity, exclude>, OnChanges {
    * коллбек сhanged, который летит из One компонента,
    * если были обнаружены изменения
    */
-  public onChange(value: string | string[] | number | number[] | boolean | boolean[]) {
+  public onChangeNow(value: v) {
     if (this.readonly) {
       return;
     } else {
